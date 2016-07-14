@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a" async=""></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to create AutoCompleteTextView using custom Filter Implementation | My Experiments</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://akshaymukadam.wordpress.com/xmlrpc.php">
+
+<link rel="alternate" type="application/rss+xml" title="My Experiments » Feed" href="https://akshaymukadam.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="My Experiments » Comments Feed" href="https://akshaymukadam.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="My Experiments » How to create AutoCompleteTextView using custom Filter&nbsp;Implementation Comments Feed" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/feed/">
+	<script src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/beacon.js" async=""></script><script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<link rel="stylesheet" id="all-css-0" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="penscratch-fonts-css" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-2" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_003.css" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-3" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/global-print.css" type="text/css" media="print">
+<link rel="stylesheet" id="all-css-4" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_005.js"></script>
+<link rel="stylesheet" id="all-css-0" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://akshaymukadam.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/">
+<link rel="shortlink" href="http://wp.me/p5GOzN-4">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Fakshaymukadam.wordpress.com%2F2015%2F02%2F01%2Fhow-to-create-autocompletetextview-using-custom-filter-implementation%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Fakshaymukadam.wordpress.com%2F2015%2F02%2F01%2Fhow-to-create-autocompletetextview-using-custom-filter-implementation%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to create AutoCompleteTextView using custom Filter Implementation">
+<meta property="og:url" content="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/">
+<meta property="og:description" content="Hi folks,today I would like to share how can we create a AutoCompleteTextView with custom List. AutoCompleteTextView widget with a simple String objects is just a simple task, but its slightly comp…">
+<meta property="article:published_time" content="2015-02-01T16:24:29+00:00">
+<meta property="article:modified_time" content="2015-02-01T16:24:32+00:00">
+<meta property="og:site_name" content="My Experiments">
+<meta property="og:image" content="https://akshaymukadam.files.wordpress.com/2015/02/screenshot_2015-02-01-21-42-57.png">
+<meta property="og:image:width" content="540">
+<meta property="og:image:height" content="960">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image" content="https://akshaymukadam.files.wordpress.com/2015/02/screenshot_2015-02-01-21-42-57.png?w=240">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://akshaymukadam.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://akshaymukadam.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://akshaymukadam.wordpress.com/osd.xml" title="My Experiments">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+<meta name="theme-color" content="#eeeeee">
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+				<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="My Experiments"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Experience with Android"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://akshaymukadam.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="How to create AutoCompleteTextView using custom Filter&nbsp;Implementation | My Experiments on WordPress.com">
+<meta name="description" content="Hi folks,today I would like to share how can we create a AutoCompleteTextView with custom List. AutoCompleteTextView widget with a simple String objects is just a simple task, but its slightly complicated with custom List. I also faced a similar problem when I tried to implement it. I would like to share how we should…">
+		<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/amzn_ads.js"></script>
+		<script type="text/javascript">
+		try { amznads.getAds("3033"); } catch(e) { /* ignore */ }
+		</script>
+		<script type="text/javascript">
+		try {
+			var a9_p = amznads.getKeys(),
+			_ipw_custom = {
+				wordAds: '0',
+				adSafe: '0',
+				domain: 'akshaymukadam.wordpress.com',
+				pageURL: 'https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/'
+			};
+			if("undefined"!=typeof a9_p&&""!=a9_p&&null!==a9_p&&"[object Array]"===Object.prototype.toString.call(a9_p)){var a="",b=0,c=a9_p.length;a9_p.sort();for(var d=0;d<c;d++){a9_p[d-b]=a9_p[d-b].replace(/a1x6p/,"a160x600p");var e=a9_p[d-b].split("p");e[0]==a&&(a9_p.splice(d-b,1),b++);a=e[0]}_ipw_custom.amznPay=a9_p};document.close();
+		} catch(e) {}
+		</script>		<!-- IPONWEB header script -->
+		<script type="text/javascript">
+			window.__ATA = {
+				scriptSrc: '//s.pubmine.com/showad.js',
+				slotPrefix: 'automattic-id-',
+				initAd: function(o) {
+					var o = o || {},
+						g = window,
+						d = g.document,
+						wr = d.write,
+						id = g.__ATA.id();
+					wr.call(d, '<div id="' + id + '" data-section="' + (o.sectionId || 0) + '"' + (o.type ? ('data-type="' + o.type + '"') : '') + ' ' + (o.forcedUrl ? ('data-forcedurl="' + o.forcedUrl + '"') : '') + ' style="width:' + (o.width || 0) + 'px; height:' + (o.height || 0) + 'px;">');
+					g.__ATA.displayAd(id);
+					wr.call(d, '</div>');
+				},
+				displayAd: function(id) {
+					window.__ATA.ids = window.__ATA.ids || {};
+					window.__ATA.ids[id] = 1;
+				},
+				customParams: _ipw_custom,
+				id: function() {
+					return window.__ATA.slotPrefix + (parseInt(Math.random() * 10000, 10) + 1 + (new Date()).getMilliseconds());
+				}
+			};
+			(function(d, ata) {
+				var pr = "https:" === d.location.protocol ? "https:" : "http:",
+					src = pr + ata.scriptSrc,
+					st = "text/javascript";
+				d.write('<scr' + 'ipt type="' + st + '" src="' + src + '"><\/scr' + 'ipt>');
+			})(window.document, window.__ATA);
+		</script><script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/showad.js"></script>
+		<script type="text/javascript">
+		jQuery(window).ready(function () {
+			jQuery("a.wpa-about").text("About these ads");
+		});
+		</script><link rel="amphtml" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/amp/"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/ga.js" async="" type="text/javascript"></script>
+<script src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_004.js" async="" type="text/javascript"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/services.css"><script src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_003.js" async="" type="text/javascript"></script></head>
+
+<body class="single single-post postid-4 single-format-standard mp6 customizer-styles-applied highlander-enabled highlander-light">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+						<h1 class="site-title"><a href="https://akshaymukadam.wordpress.com/" rel="home">My Experiments</a></h1>
+			<h2 class="site-description">Experience with Android</h2>
+		</div>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<div class="menu"><ul class=" nav-menu"><li><a href="https://akshaymukadam.wordpress.com/">Home</a></li><li class="page_item page-item-1"><a href="https://akshaymukadam.wordpress.com/about/">About</a></li></ul></div>
+		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+		
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-4" class="post-4 post type-post status-publish format-standard hentry category-widgets tag-android">
+	<header class="entry-header">
+		<h1 class="entry-title">How to create AutoCompleteTextView using custom Filter&nbsp;Implementation</h1>
+		<div class="entry-meta">
+						<span class="posted-on"><a href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/" rel="bookmark"><time class="entry-date published" datetime="2015-02-01T16:24:29+00:00">February 1, 2015</time><time class="updated" datetime="2015-02-01T16:24:32+00:00">February 1, 2015</time></a></span><span class="byline"><span class="sep"> ~ </span><span class="author vcard"><a class="url fn n" href="https://akshaymukadam.wordpress.com/author/akshaymukadam29/">akshaymukadam29</a></span></span>					</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p style="text-align:justify;">Hi folks,today I would like to share how can we create a <a title="AutoCompleteTextView" href="http://developer.android.com/reference/android/widget/AutoCompleteTextView.html" target="_blank">AutoCompleteTextView</a> with custom List.<br>
+<strong> AutoCompleteTextView</strong> widget with a simple String 
+objects is just a simple task, but its slightly complicated with custom 
+List. I also faced a similar problem when I tried to implement it. I 
+would like to share how we should get the thing done in few minutes.</p>
+<p style="text-align:justify;">Lets get started.<br>
+Create a basic project in Android with the name you like. I created it with AutoCompleteDemo.</p>
+<p style="text-align:justify;">This should be your<strong> <span class="skimlinks-unlinked">activity_main.xml</span></strong></p>
+<p style="text-align:justify;"><!-- HTML generated using hilite.me --></p>
+<div style="background:none repeat scroll 0 0 #ffffff;overflow:auto;width:auto;border-style:solid;border-color:gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;text-align:justify;">
+<table>
+<tbody>
+<tr>
+<td>
+<pre style="margin:0;line-height:125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
+</td>
+<td>
+<pre style="margin:0;line-height:125%;"><span style="color:#007700;">&lt;RelativeLayout</span> <span style="color:#0000cc;">xmlns:android=</span><span style="background-color:#fff0f0;">"<span class="skimlinks-unlinked">http://schemas.android.com/apk/res/android</span>"</span>
+    <span style="color:#0000cc;">xmlns:tools=</span><span style="background-color:#fff0f0;">"<span class="skimlinks-unlinked">http://schemas.android.com/tools</span>"</span>
+    <span style="color:#0000cc;">android:layout_width=</span><span style="background-color:#fff0f0;">"match_parent"</span>
+    <span style="color:#0000cc;">android:layout_height=</span><span style="background-color:#fff0f0;">"match_parent"</span>
+    <span style="color:#0000cc;">android:paddingLeft=</span><span style="background-color:#fff0f0;">"@dimen/activity_horizontal_margin"</span>
+    <span style="color:#0000cc;">android:paddingRight=</span><span style="background-color:#fff0f0;">"@dimen/activity_horizontal_margin"</span>
+    <span style="color:#0000cc;">android:paddingTop=</span><span style="background-color:#fff0f0;">"@dimen/activity_vertical_margin"</span>
+    <span style="color:#0000cc;">android:paddingBottom=</span><span style="background-color:#fff0f0;">"@dimen/activity_vertical_margin"</span>
+    <span style="color:#0000cc;">tools:context=</span><span style="background-color:#fff0f0;">".MainActivity"</span><span style="color:#007700;">&gt;</span>
+
+    <span style="color:#007700;">&lt;AutoCompleteTextView</span>
+        <span style="color:#0000cc;">android:id=</span><span style="background-color:#fff0f0;">"@+id/txt_search"</span>
+        <span style="color:#0000cc;">android:hint=</span><span style="background-color:#fff0f0;">"@string/placeholder_search"</span>
+        <span style="color:#0000cc;">android:completionThreshold=</span><span style="background-color:#fff0f0;">"1"</span>
+        <span style="color:#0000cc;">android:layout_width=</span><span style="background-color:#fff0f0;">"match_parent"</span>
+        <span style="color:#0000cc;">android:layout_height=</span><span style="background-color:#fff0f0;">"wrap_content"</span> <span style="color:#007700;">/&gt;</span>
+<span style="color:#007700;">&lt;/RelativeLayout&gt;</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:justify;">Layout for custom row in <strong><span class="skimlinks-unlinked">row_people.xml</span></strong></p>
+<div style="background:none repeat scroll 0 0 #ffffff;overflow:auto;width:auto;border-style:solid;border-color:gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;text-align:justify;">
+<table>
+<tbody>
+<tr>
+<td>
+<pre style="margin:0;line-height:125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
+</td>
+<td>
+<pre style="margin:0;line-height:125%;"><span style="color:#557799;">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span style="color:#007700;">&lt;RelativeLayout</span> <span style="color:#0000cc;">xmlns:android=</span><span style="background-color:#fff0f0;">"<span class="skimlinks-unlinked">http://schemas.android.com/apk/res/android</span>"</span>
+    <span style="color:#0000cc;">android:orientation=</span><span style="background-color:#fff0f0;">"vertical"</span>
+    <span style="color:#0000cc;">android:layout_width=</span><span style="background-color:#fff0f0;">"match_parent"</span>
+    <span style="color:#0000cc;">android:layout_height=</span><span style="background-color:#fff0f0;">"match_parent"</span><span style="color:#007700;">&gt;</span>
+
+    <span style="color:#007700;">&lt;TextView</span>
+        <span style="color:#0000cc;">android:layout_width=</span><span style="background-color:#fff0f0;">"match_parent"</span>
+        <span style="color:#0000cc;">android:layout_height=</span><span style="background-color:#fff0f0;">"wrap_content"</span>
+        <span style="color:#0000cc;">android:textAppearance=</span><span style="background-color:#fff0f0;">"?android:attr/textAppearanceMedium"</span>
+        <span style="color:#0000cc;">android:text=</span><span style="background-color:#fff0f0;">"Medium Text"</span>
+        <span style="color:#0000cc;">android:paddingLeft=</span><span style="background-color:#fff0f0;">"8dp"</span>
+        <span style="color:#0000cc;">android:paddingRight=</span><span style="background-color:#fff0f0;">"8dp"</span>
+        <span style="color:#0000cc;">android:paddingTop=</span><span style="background-color:#fff0f0;">"16dp"</span>
+        <span style="color:#0000cc;">android:paddingBottom=</span><span style="background-color:#fff0f0;">"16dp"</span>
+        <span style="color:#0000cc;">android:id=</span><span style="background-color:#fff0f0;">"@+id/lbl_name"</span> <span style="color:#007700;">/&gt;</span>
+<span style="color:#007700;">&lt;/RelativeLayout&gt;</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:justify;">Lets create a model class.</p>
+<div style="background:none repeat scroll 0 0 #ffffff;overflow:auto;width:auto;border-style:solid;border-color:gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;text-align:justify;">
+<table>
+<tbody>
+<tr>
+<td>
+<pre style="margin:0;line-height:125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
+</td>
+<td>
+<pre style="margin:0;line-height:125%;"><span style="color:#008800;font-weight:bold;">package</span> com<span style="color:#333333;">.</span><span style="color:#0000cc;">akshay</span><span style="color:#333333;">.</span><span style="color:#0000cc;">autodemo</span><span style="color:#333333;">;</span>
+
+<span style="color:#888888;">/**</span>
+<span style="color:#888888;"> * Created by akshay on 1/2/15.</span>
+<span style="color:#888888;"> * A Simple Model class.</span>
+<span style="color:#888888;"> */</span>
+<span style="color:#008800;font-weight:bold;">public</span> <span style="color:#008800;font-weight:bold;">class</span> <span style="color:#bb0066;font-weight:bold;">People</span> <span style="color:#333333;">{</span>
+
+    <span style="color:#008800;font-weight:bold;">private</span> String name<span style="color:#333333;">,</span> lastName<span style="color:#333333;">;</span>
+    <span style="color:#008800;font-weight:bold;">private</span> <span style="color:#333399;font-weight:bold;">int</span> id<span style="color:#333333;">;</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> <span style="color:#0066bb;font-weight:bold;">People</span><span style="color:#333333;">(</span>String name<span style="color:#333333;">,</span> String lastName<span style="color:#333333;">,</span> <span style="color:#333399;font-weight:bold;">int</span> id<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">name</span> <span style="color:#333333;">=</span> name<span style="color:#333333;">;</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">lastName</span> <span style="color:#333333;">=</span> lastName<span style="color:#333333;">;</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">id</span> <span style="color:#333333;">=</span> id<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> <span style="color:#333399;font-weight:bold;">int</span> <span style="color:#0066bb;font-weight:bold;">getId</span><span style="color:#333333;">()</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">return</span> id<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> <span style="color:#333399;font-weight:bold;">void</span> <span style="color:#0066bb;font-weight:bold;">setId</span><span style="color:#333333;">(</span><span style="color:#333399;font-weight:bold;">int</span> id<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">id</span> <span style="color:#333333;">=</span> id<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> String <span style="color:#0066bb;font-weight:bold;">getName</span><span style="color:#333333;">()</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">return</span> name<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> <span style="color:#333399;font-weight:bold;">void</span> <span style="color:#0066bb;font-weight:bold;">setName</span><span style="color:#333333;">(</span>String name<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">name</span> <span style="color:#333333;">=</span> name<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> String <span style="color:#0066bb;font-weight:bold;">getlastName</span><span style="color:#333333;">()</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">return</span> lastName<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> <span style="color:#333399;font-weight:bold;">void</span> <span style="color:#0066bb;font-weight:bold;">setlastName</span><span style="color:#333333;">(</span>String lastName<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">lastName</span> <span style="color:#333333;">=</span> lastName<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+<span style="color:#333333;">}</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:justify;">This is our <strong><span class="skimlinks-unlinked">MainActivity.java</span></strong><br>
+<!-- HTML generated using hilite.me --></p>
+<div style="background:none repeat scroll 0 0 #ffffff;overflow:auto;width:auto;border-style:solid;border-color:gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;text-align:justify;">
+<table>
+<tbody>
+<tr>
+<td>
+<pre style="margin:0;line-height:125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+</td>
+<td>
+<pre style="margin:0;line-height:125%;"><span style="color:#008800;font-weight:bold;">package</span> com<span style="color:#333333;">.</span><span style="color:#0000cc;">akshay</span><span style="color:#333333;">.</span><span style="color:#0000cc;">autodemo</span><span style="color:#333333;">;</span>
+
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.support.v7.app.ActionBarActivity</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.os.Bundle</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.view.Menu</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.view.MenuItem</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;">android.widget.AutoCompleteTextView</span><span style="color:#333333;">;</span>
+
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">java.util.ArrayList</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">java.util.List</span></span><span style="color:#333333;">;</span>
+
+<span style="color:#008800;font-weight:bold;">public</span> <span style="color:#008800;font-weight:bold;">class</span> <span style="color:#bb0066;font-weight:bold;">MainActivity</span> <span style="color:#008800;font-weight:bold;">extends</span> ActionBarActivity <span style="color:#333333;">{</span>
+
+    AutoCompleteTextView txtSearch<span style="color:#333333;">;</span>
+    List<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> mList<span style="color:#333333;">;</span>
+    PeopleAdapter adapter<span style="color:#333333;">;</span>
+
+    <span style="color:#555555;font-weight:bold;">@Override</span>
+    <span style="color:#008800;font-weight:bold;">protected</span> <span style="color:#333399;font-weight:bold;">void</span> <span style="color:#0066bb;font-weight:bold;">onCreate</span><span style="color:#333333;">(</span>Bundle savedInstanceState<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">super</span><span style="color:#333333;">.</span><span style="color:#0000cc;">onCreate</span><span style="color:#333333;">(</span>savedInstanceState<span style="color:#333333;">);</span>
+        setContentView<span style="color:#333333;">(</span>R<span style="color:#333333;">.</span><span style="color:#0000cc;">layout</span><span style="color:#333333;">.</span><span style="color:#0000cc;">activity_main</span><span style="color:#333333;">);</span>
+        mList <span style="color:#333333;">=</span> retrievePeople<span style="color:#333333;">();</span>
+        txtSearch <span style="color:#333333;">=</span> <span style="color:#333333;">(</span>AutoCompleteTextView<span style="color:#333333;">)</span> findViewById<span style="color:#333333;">(</span>R<span style="color:#333333;">.</span><span style="color:#0000cc;">id</span><span style="color:#333333;">.</span><span style="color:#0000cc;">txt_search</span><span style="color:#333333;">);</span>
+        txtSearch<span style="color:#333333;">.</span><span style="color:#0000cc;">setThreshold</span><span style="color:#333333;">(</span><span style="color:#0000dd;font-weight:bold;">1</span><span style="color:#333333;">);</span>
+        adapter <span style="color:#333333;">=</span> <span style="color:#008800;font-weight:bold;">new</span> PeopleAdapter<span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">,</span> R<span style="color:#333333;">.</span><span style="color:#0000cc;">layout</span><span style="color:#333333;">.</span><span style="color:#0000cc;">activity_main</span><span style="color:#333333;">,</span> R<span style="color:#333333;">.</span><span style="color:#0000cc;">id</span><span style="color:#333333;">.</span><span style="color:#0000cc;">lbl_name</span><span style="color:#333333;">,</span> mList<span style="color:#333333;">);</span>
+        txtSearch<span style="color:#333333;">.</span><span style="color:#0000cc;">setAdapter</span><span style="color:#333333;">(</span>adapter<span style="color:#333333;">);</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#008800;font-weight:bold;">private</span> List<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> <span style="color:#0066bb;font-weight:bold;">retrievePeople</span><span style="color:#333333;">()</span> <span style="color:#333333;">{</span>
+        List<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> list <span style="color:#333333;">=</span> <span style="color:#008800;font-weight:bold;">new</span> ArrayList<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;();</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"James"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Bond"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">1</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Jason"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Bourne"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">2</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Ethan"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Hunt"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">3</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Sherlock"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Holmes"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">4</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"David"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Beckham"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">5</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Bryan"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Adams"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">6</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Arjen"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Robben"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">7</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Van"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Persie"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">8</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Zinedine"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Zidane"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">9</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"Luis"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Figo"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">10</span><span style="color:#333333;">));</span>
+        list<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span><span style="color:#008800;font-weight:bold;">new</span> People<span style="color:#333333;">(</span><span style="background-color:#fff0f0;">"John"</span><span style="color:#333333;">,</span> <span style="background-color:#fff0f0;">"Watson"</span><span style="color:#333333;">,</span> <span style="color:#0000dd;font-weight:bold;">11</span><span style="color:#333333;">));</span>
+        <span style="color:#008800;font-weight:bold;">return</span> list<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+<span style="color:#333333;">}</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:justify;">This is the most awaited Adapter class <strong><span class="skimlinks-unlinked">PeopleAdapter.java</span></strong></p>
+<p style="text-align:justify;"><!-- HTML generated using hilite.me --></p>
+<div style="background:none repeat scroll 0 0 #ffffff;overflow:auto;width:auto;border-style:solid;border-color:gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;text-align:justify;">
+<table>
+<tbody>
+<tr>
+<td>
+<pre style="margin:0;line-height:125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
+</td>
+<td>
+<pre style="margin:0;line-height:125%;"><span style="color:#008800;font-weight:bold;">package</span> com<span style="color:#333333;">.</span><span style="color:#0000cc;">akshay</span><span style="color:#333333;">.</span><span style="color:#0000cc;">autodemo</span><span style="color:#333333;">;</span>
+
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;">android.content.Context</span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.view.LayoutInflater</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.view.View</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">android.view.ViewGroup</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;">android.widget.ArrayAdapter</span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;">android.widget.Filter</span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;">android.widget.TextView</span><span style="color:#333333;">;</span>
+
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">java.util.ArrayList</span></span><span style="color:#333333;">;</span>
+<span style="color:#008800;font-weight:bold;">import</span> <span style="color:#0e84b5;font-weight:bold;"><span class="skimlinks-unlinked">java.util.List</span></span><span style="color:#333333;">;</span>
+
+<span style="color:#888888;">/**</span>
+<span style="color:#888888;"> * Created by akshay on 1/2/15.</span>
+<span style="color:#888888;"> */</span>
+<span style="color:#008800;font-weight:bold;">public</span> <span style="color:#008800;font-weight:bold;">class</span> <span style="color:#bb0066;font-weight:bold;">PeopleAdapter</span> <span style="color:#008800;font-weight:bold;">extends</span> ArrayAdapter<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> <span style="color:#333333;">{</span>
+
+    Context context<span style="color:#333333;">;</span>
+    <span style="color:#333399;font-weight:bold;">int</span> resource<span style="color:#333333;">,</span> textViewResourceId<span style="color:#333333;">;</span>
+    List<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> items<span style="color:#333333;">,</span> tempItems<span style="color:#333333;">,</span> suggestions<span style="color:#333333;">;</span>
+
+    <span style="color:#008800;font-weight:bold;">public</span> <span style="color:#0066bb;font-weight:bold;">PeopleAdapter</span><span style="color:#333333;">(</span>Context context<span style="color:#333333;">,</span> <span style="color:#333399;font-weight:bold;">int</span> resource<span style="color:#333333;">,</span> <span style="color:#333399;font-weight:bold;">int</span> textViewResourceId<span style="color:#333333;">,</span> List<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> items<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">super</span><span style="color:#333333;">(</span>context<span style="color:#333333;">,</span> resource<span style="color:#333333;">,</span> textViewResourceId<span style="color:#333333;">,</span> items<span style="color:#333333;">);</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">context</span> <span style="color:#333333;">=</span> context<span style="color:#333333;">;</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">resource</span> <span style="color:#333333;">=</span> resource<span style="color:#333333;">;</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">textViewResourceId</span> <span style="color:#333333;">=</span> textViewResourceId<span style="color:#333333;">;</span>
+        <span style="color:#008800;font-weight:bold;">this</span><span style="color:#333333;">.</span><span style="color:#0000cc;">items</span> <span style="color:#333333;">=</span> items<span style="color:#333333;">;</span>
+        tempItems <span style="color:#333333;">=</span> <span style="color:#008800;font-weight:bold;">new</span> ArrayList<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;(</span>items<span style="color:#333333;">);</span> <span style="color:#888888;">// this makes the difference.</span>
+        suggestions <span style="color:#333333;">=</span> <span style="color:#008800;font-weight:bold;">new</span> ArrayList<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;();</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#555555;font-weight:bold;">@Override</span>
+    <span style="color:#008800;font-weight:bold;">public</span> View <span style="color:#0066bb;font-weight:bold;">getView</span><span style="color:#333333;">(</span><span style="color:#333399;font-weight:bold;">int</span> position<span style="color:#333333;">,</span> View convertView<span style="color:#333333;">,</span> ViewGroup parent<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+        View view <span style="color:#333333;">=</span> convertView<span style="color:#333333;">;</span>
+        <span style="color:#008800;font-weight:bold;">if</span> <span style="color:#333333;">(</span>convertView <span style="color:#333333;">==</span> <span style="color:#008800;font-weight:bold;">null</span><span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+            LayoutInflater inflater <span style="color:#333333;">=</span> <span style="color:#333333;">(</span>LayoutInflater<span style="color:#333333;">)</span> context<span style="color:#333333;">.</span><span style="color:#0000cc;">getSystemService</span><span style="color:#333333;">(</span>Context<span style="color:#333333;">.</span><span style="color:#0000cc;">LAYOUT_INFLATER_SERVICE</span><span style="color:#333333;">);</span>
+            view <span style="color:#333333;">=</span> inflater<span style="color:#333333;">.</span><span style="color:#0000cc;">inflate</span><span style="color:#333333;">(</span>R<span style="color:#333333;">.</span><span style="color:#0000cc;">layout</span><span style="color:#333333;">.</span><span style="color:#0000cc;">row_people</span><span style="color:#333333;">,</span> parent<span style="color:#333333;">,</span> <span style="color:#008800;font-weight:bold;">false</span><span style="color:#333333;">);</span>
+        <span style="color:#333333;">}</span>
+        People people <span style="color:#333333;">=</span> items<span style="color:#333333;">.</span><span style="color:#0000cc;">get</span><span style="color:#333333;">(</span>position<span style="color:#333333;">);</span>
+        <span style="color:#008800;font-weight:bold;">if</span> <span style="color:#333333;">(</span>people <span style="color:#333333;">!=</span> <span style="color:#008800;font-weight:bold;">null</span><span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+            TextView lblName <span style="color:#333333;">=</span> <span style="color:#333333;">(</span>TextView<span style="color:#333333;">)</span> view<span style="color:#333333;">.</span><span style="color:#0000cc;">findViewById</span><span style="color:#333333;">(</span>R<span style="color:#333333;">.</span><span style="color:#0000cc;">id</span><span style="color:#333333;">.</span><span style="color:#0000cc;">lbl_name</span><span style="color:#333333;">);</span>
+            <span style="color:#008800;font-weight:bold;">if</span> <span style="color:#333333;">(</span>lblName <span style="color:#333333;">!=</span> <span style="color:#008800;font-weight:bold;">null</span><span style="color:#333333;">)</span>
+                lblName<span style="color:#333333;">.</span><span style="color:#0000cc;">setText</span><span style="color:#333333;">(</span>people<span style="color:#333333;">.</span><span style="color:#0000cc;">getName</span><span style="color:#333333;">());</span>
+        <span style="color:#333333;">}</span>
+        <span style="color:#008800;font-weight:bold;">return</span> view<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#555555;font-weight:bold;">@Override</span>
+    <span style="color:#008800;font-weight:bold;">public</span> Filter <span style="color:#0066bb;font-weight:bold;">getFilter</span><span style="color:#333333;">()</span> <span style="color:#333333;">{</span>
+        <span style="color:#008800;font-weight:bold;">return</span> nameFilter<span style="color:#333333;">;</span>
+    <span style="color:#333333;">}</span>
+
+    <span style="color:#888888;">/**</span>
+<span style="color:#888888;">     * Custom Filter implementation for custom suggestions we provide.</span>
+<span style="color:#888888;">     */</span>
+    Filter nameFilter <span style="color:#333333;">=</span> <span style="color:#008800;font-weight:bold;">new</span> Filter<span style="color:#333333;">()</span> <span style="color:#333333;">{</span>
+        <span style="color:#555555;font-weight:bold;">@Override</span>
+        <span style="color:#008800;font-weight:bold;">public</span> CharSequence <span style="color:#0066bb;font-weight:bold;">convertResultToString</span><span style="color:#333333;">(</span>Object resultValue<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+            String str <span style="color:#333333;">=</span> <span style="color:#333333;">((</span>People<span style="color:#333333;">)</span> resultValue<span style="color:#333333;">).</span><span style="color:#0000cc;">getName</span><span style="color:#333333;">();</span>
+            <span style="color:#008800;font-weight:bold;">return</span> str<span style="color:#333333;">;</span>
+        <span style="color:#333333;">}</span>
+
+        <span style="color:#555555;font-weight:bold;">@Override</span>
+        <span style="color:#008800;font-weight:bold;">protected</span> FilterResults <span style="color:#0066bb;font-weight:bold;">performFiltering</span><span style="color:#333333;">(</span>CharSequence constraint<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+            <span style="color:#008800;font-weight:bold;">if</span> <span style="color:#333333;">(</span>constraint <span style="color:#333333;">!=</span> <span style="color:#008800;font-weight:bold;">null</span><span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+                suggestions<span style="color:#333333;">.</span><span style="color:#0000cc;">clear</span><span style="color:#333333;">();</span>
+                <span style="color:#008800;font-weight:bold;">for</span> <span style="color:#333333;">(</span>People people <span style="color:#333333;">:</span> tempItems<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+                    <span style="color:#008800;font-weight:bold;">if</span> <span style="color:#333333;">(</span>people<span style="color:#333333;">.</span><span style="color:#0000cc;">getName</span><span style="color:#333333;">().</span><span style="color:#0000cc;">toLowerCase</span><span style="color:#333333;">().</span><span style="color:#0000cc;">contains</span><span style="color:#333333;">(</span>constraint<span style="color:#333333;">.</span><span style="color:#0000cc;">toString</span><span style="color:#333333;">().</span><span style="color:#0000cc;">toLowerCase</span><span style="color:#333333;">()))</span> <span style="color:#333333;">{</span>
+                        suggestions<span style="color:#333333;">.</span><span style="color:#0000cc;">add</span><span style="color:#333333;">(</span>people<span style="color:#333333;">);</span>
+                    <span style="color:#333333;">}</span>
+                <span style="color:#333333;">}</span>
+                FilterResults filterResults <span style="color:#333333;">=</span> <span style="color:#008800;font-weight:bold;">new</span> FilterResults<span style="color:#333333;">();</span>
+                filterResults<span style="color:#333333;">.</span><span style="color:#0000cc;">values</span> <span style="color:#333333;">=</span> suggestions<span style="color:#333333;">;</span>
+                filterResults<span style="color:#333333;">.</span><span style="color:#0000cc;">count</span> <span style="color:#333333;">=</span> suggestions<span style="color:#333333;">.</span><span style="color:#0000cc;">size</span><span style="color:#333333;">();</span>
+                <span style="color:#008800;font-weight:bold;">return</span> filterResults<span style="color:#333333;">;</span>
+            <span style="color:#333333;">}</span> <span style="color:#008800;font-weight:bold;">else</span> <span style="color:#333333;">{</span>
+                <span style="color:#008800;font-weight:bold;">return</span> <span style="color:#008800;font-weight:bold;">new</span> <span style="color:#0066bb;font-weight:bold;">FilterResults</span><span style="color:#333333;">();</span>
+            <span style="color:#333333;">}</span>
+        <span style="color:#333333;">}</span>
+
+        <span style="color:#555555;font-weight:bold;">@Override</span>
+        <span style="color:#008800;font-weight:bold;">protected</span> <span style="color:#333399;font-weight:bold;">void</span> <span style="color:#0066bb;font-weight:bold;">publishResults</span><span style="color:#333333;">(</span>CharSequence constraint<span style="color:#333333;">,</span> FilterResults results<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+            List<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;</span> filterList <span style="color:#333333;">=</span> <span style="color:#333333;">(</span>ArrayList<span style="color:#333333;">&lt;</span>People<span style="color:#333333;">&gt;)</span> results<span style="color:#333333;">.</span><span style="color:#0000cc;">values</span><span style="color:#333333;">;</span>
+            <span style="color:#008800;font-weight:bold;">if</span> <span style="color:#333333;">(</span>results <span style="color:#333333;">!=</span> <span style="color:#008800;font-weight:bold;">null</span> <span style="color:#333333;">&amp;&amp;</span> results<span style="color:#333333;">.</span><span style="color:#0000cc;">count</span> <span style="color:#333333;">&gt;</span> <span style="color:#0000dd;font-weight:bold;">0</span><span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+                clear<span style="color:#333333;">();</span>
+                <span style="color:#008800;font-weight:bold;">for</span> <span style="color:#333333;">(</span>People people <span style="color:#333333;">:</span> filterList<span style="color:#333333;">)</span> <span style="color:#333333;">{</span>
+                    add<span style="color:#333333;">(</span>people<span style="color:#333333;">);</span>
+                    notifyDataSetChanged<span style="color:#333333;">();</span>
+                <span style="color:#333333;">}</span>
+            <span style="color:#333333;">}</span>
+        <span style="color:#333333;">}</span>
+    <span style="color:#333333;">};</span>
+<span style="color:#333333;">}</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:justify;">Now there might be question at <span style="color:#ff6600;"><em>line no 29</em></span> why have created a new object instead of passing <code>tempItems = items</code>.
+ That was the mistake I did, because Collection, Arrays etc are mutable 
+objects i.e Assigment operator is fined for primitive types or immutable
+ objects like String, int, etc if we want to copy a value in another 
+variable. But its not fined in Collections or Arrays becaues they all 
+are mutable object, and any copy of the object points to original 
+object.</p>
+<p style="text-align:justify;">We can also use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html" target="_blank">Cloneable Interface</a>
+ to clone the object, but its not recommended approach though its good 
+practice, but it has some pitfalls. I will explain Clone Interface and 
+its working in other post.</p>
+<p style="text-align:justify;">Following is output of above program</p>
+<p style="text-align:justify;"><a href="https://akshaymukadam.files.wordpress.com/2015/02/screenshot_2015-02-01-21-42-57.png"><img class=" size-medium wp-image-66 aligncenter" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/screenshot_2015-02-01-21-42-57.png" alt="Screenshot_2015-02-01-21-42-57" width="169" height="300"></a></p>
+<p style="text-align:justify;"><em>If you like this article please comment or if you have any problems or if I have commited any mistake please let me know. </em></p>
+<p style="text-align:justify;"><em>Happy Coding.</em></p>
+<p style="text-align:justify;">
+		</p><div class="wpcnt">
+			<div class="wpa wpmrec">
+				<a class="wpa-about" href="https://wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+				<div class="u">
+					<script type="text/javascript">
+					(function(g){g.__ATA.initAd({sectionId:26942, width:300, height:250});})(window);
+					</script><div id="automattic-id-6141" data-section="26942" style="width:300px; height:250px;"></div>
+				</div>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-4" class="share-twitter sd-button share-icon" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-4" class="share-facebook sd-button share-icon" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/?share=facebook&amp;nb=1" target="_blank" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-4" class="share-google-plus-1 sd-button share-icon" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-84085875-4-57871b6982924" data-src="//widgets.wp.com/likes/#blog_id=84085875&amp;post_id=4&amp;origin=akshaymukadam.wordpress.com&amp;obj_id=84085875-4-57871b6982924" data-name="like-post-frame-84085875-4-57871b6982924"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-84085875-4-57871b6982924" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a.html" width="100%" frameborder="0" height="55px"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+						<span class="tags-links">
+			<a href="https://akshaymukadam.wordpress.com/tag/android/" rel="tag">android</a>		</span>
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+			
+<div id="comments" class="comments-area">
+
+	
+	
+	
+					<div id="respond" class="comment-respond js">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://akshaymukadam.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+					<input id="highlander_comment_nonce" name="highlander_comment_nonce" value="4bf15f62f7" type="hidden"><input name="_wp_http_referer" value="/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/" type="hidden">
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea class="autosizejs " tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; word-wrap: break-word; height: 0px ! important; min-height: 0px ! important; overflow: hidden; transition: none 0s ease 0s ; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 16px; width: 633.9px;">Enter your comment here...</textarea><textarea style="height: 36px; overflow: hidden; word-wrap: break-word; resize: none;" placeholder="Enter your comment here..." id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div style="display: none;" id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_002.html" scrolling="no" allowtransparency="true" seamless="seamless" width="24" frameborder="0" height="24"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/ad516503a11cd5ca435acc9bb6523536.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" type="hidden">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'googleplus'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div style="display: none;" id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+
+
+
+<p style="display: none;" class="form-submit"><input name="submit" id="comment-submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="4" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="21c10a8eba" type="hidden"></p>
+<input name="genseq" value="1468472169" type="hidden">
+<p style="display: none;"></p>				<input id="ak_js" name="ak_js" value="1468472178131" type="hidden"></form>
+					</div><!-- #respond -->
+		<div style="clear: both"></div>
+</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	<div id="secondary" class="widget-area" role="complementary">
+		<aside id="search-3" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://akshaymukadam.wordpress.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input class="search-field" placeholder="Search …" name="s" type="search">
+				</label>
+				<input class="search-submit" value="Search" type="submit">
+			</form></aside><aside id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h1 class="widget-title">Tags</h1><div style="overflow:hidden"><a href="https://akshaymukadam.wordpress.com/tag/android/" class="tag-link-641922 tag-link-position-1" title="1 topic" style="font-size: 8pt;">android</a></div></aside>	</div><!-- #secondary -->
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="https://wordpress.com/?ref=footer_website">Create a free website or blog at WordPress.com.</a>
+			<span class="sep"> ~ </span>
+			<a href="https://wordpress.com/themes/penscratch/" title="Learn more about this theme">The Penscratch Theme</a>.		</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!-- wpcom_wp_footer -->
+<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/akshaymukadam.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/akshaymukadam.wordpress.com\/wp-login.php?action=logout&_wpnonce=2117479607","homeURL":"https:\/\/akshaymukadam.wordpress.com\/","postID":"4","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a.js"></script>
+
+	<div style="bottom: -289px;" id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “My Experiments”</label></h3>
+
+			<form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 736 other followers</p>
+			<p><input name="email" placeholder="Enter your email address" id="loggedout-follow-field" type="email"></p>
+
+			<input name="action" value="subscribe" type="hidden">
+			<input name="blog_id" value="84085875" type="hidden">
+			<input name="source" value="https://akshaymukadam.wordpress.com/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/" type="hidden">
+			<input name="sub-type" value="loggedout-follow" type="hidden">
+
+			<input id="_wpnonce" name="_wpnonce" value="8ca574c014" type="hidden"><input name="_wp_http_referer" value="/2015/02/01/how-to-create-autocompletetextview-using-custom-filter-implementation/" type="hidden">
+			<p id="bsub-subscribe-button"><input value="Sign me up" type="submit"></p>
+			</form>
+					<div id="bsub-credit"><a href="https://wordpress.com/?ref=lof">Build a website with WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/akshaymukadam.wordpress.com\/2015\/02\/01\/how-to-create-autocompletetextview-using-custom-filter-implementation\/":4};
+	</script>
+		<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+		<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/form.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var comment_like_text = {"loading":"Loading..."};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var JetpackEmojiSettings = {"base_url":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/emoji\/twemoji\/"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/a_002.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "akshaymukadam.wordpress.com";
+	</script>
+	<script type="text/javascript" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/725X1342.js"></script>		<iframe src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script>
+			var _comscore = _comscore || [];
+			_comscore.push({
+				c1: "2",
+				c2: "7518284"
+			});
+			(function() {
+				var s = document.createElement("script"),
+					el = document.getElementsByTagName("script")[0];
+				s.async = true;
+				s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+				el.parentNode.insertBefore(s, el);
+			})();
+		</script>
+		<noscript>
+			<p class="robots-nocontent"><img src="https://sb.scorecardresearch.com/p?c1=2&c2=7518284&c3=&c4=&c5=&c6=&c15=&cv=2.0&cj=1" alt="" style="display:none;" width="1" height="1" /></p>
+		</noscript><script src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/w.js" type="text/javascript" async="" defer="defer"></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'84085875','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'84085875','v':'wpcom','tz':'0','user_id':'0','post':'4','subd':'akshaymukadam'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRdC5QY2ZQY1U1P1RabnE5QU1OR2c1cS5NcCt4S29GW1RfODdyeTNNOElmM0ZFRkdBYkU0QTNjZUhoZT9SMGhTOXdsSVksbG5wS1BnUS5JVXglREo9VWRkUTJtc1NiMi8ySn5wb0p3VHBfcDNEUzQ/bVNYRiV8UXB+aSVJYzN+dF9DaDZwLDBwPX52UXxoZDQ5cVdxNHVYR1FhYkdVTSZyNUdjeE05P3FSNGd4bXFmK1Zkelp2W2pqN0YmYi9QTWpHM0xIdi5seD8rL1RjdSxqZFo/azFjemN4NkNlZjY1bC1fTERZUm80emtMODdQJV8lPQ=='}]);
+_stq.push([ 'clickTrackerInit', '84085875', '4' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<div style="display: none;" class="comment-likes-overlay"></div><img id="wpstats" alt=":)" src="How%20to%20create%20AutoCompleteTextView%20using%20custom%20Filter%20Implementation%20%7C%20My%20Experiments_files/g.gif"></body></html>
